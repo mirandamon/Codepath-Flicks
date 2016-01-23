@@ -16,7 +16,7 @@ The following **required** functionality is complete:
 
 The following **optional** features are implemented:
 
-- [ ] Movies are displayed using a CollectionView instead of a TableView.
+- [X] Movies are displayed using a CollectionView instead of a TableView.
 - [ ] User can select from a tab bar for either "Now Playing" or "Top Rated" movies.
 - [ ] User can search for a movie.
 - [ ] All images fade in as they are loading.
