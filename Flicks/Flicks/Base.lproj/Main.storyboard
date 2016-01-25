@@ -24,9 +24,14 @@
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
                                 <edgeInsets key="layoutMargins" top="0.0" left="0.0" bottom="0.0" right="0.0"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="w52-RM-fJQ">
                                     <size key="itemSize" width="160" height="240"/>
+=======
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="w52-RM-fJQ">
+                                    <size key="itemSize" width="155" height="285"/>
+>>>>>>> parent of 74ddab3... Fixed Spacing between movie posters
 =======
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="w52-RM-fJQ">
                                     <size key="itemSize" width="155" height="285"/>
@@ -43,7 +48,11 @@
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="com.miraen.MovieCell" id="X3Z-dX-X0b" customClass="MovieCellCollection" customModule="Flicks" customModuleProvider="target">
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
                                         <rect key="frame" x="0.0" y="0.0" width="160" height="240"/>
+=======
+                                        <rect key="frame" x="0.0" y="0.0" width="155" height="285"/>
+>>>>>>> parent of 74ddab3... Fixed Spacing between movie posters
 =======
                                         <rect key="frame" x="0.0" y="0.0" width="155" height="285"/>
 >>>>>>> parent of 74ddab3... Fixed Spacing between movie posters
