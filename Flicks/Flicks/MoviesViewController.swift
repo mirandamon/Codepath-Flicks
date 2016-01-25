@@ -10,20 +10,22 @@ import UIKit
 import AFNetworking
 import MBProgressHUD
 
-class MoviesViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
+class MoviesViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UISearchBarDelegate {
     
     
     @IBOutlet weak var collectionView: UICollectionView!
     var refreshControl: UIRefreshControl!
     var movies: [NSDictionary]?
-    
+    var filteredData: [String]!
+    var movieTitles: [String]!
+    @IBOutlet weak var searchBar: UISearchBar!
     override func viewDidLoad() {
         super.viewDidLoad()
         collectionView.dataSource = self
         collectionView.delegate = self
+        searchBar.delegate = self
         
         loadDataFromNetwork()
-        
         refreshControl = UIRefreshControl()
         refreshControl.addTarget(self, action: "onRefresh", forControlEvents: UIControlEvents.ValueChanged)
         collectionView.insertSubview(refreshControl, atIndex: 0)
@@ -50,7 +52,7 @@ class MoviesViewController: UIViewController, UICollectionViewDataSource, UIColl
                 if let data = dataOrNil {
                     if let responseDictionary = try! NSJSONSerialization.JSONObjectWithData(
                         data, options:[]) as? NSDictionary {
-                            NSLog("response: \(responseDictionary)")
+                            //NSLog("response: \(responseDictionary)")
                             self.movies = responseDictionary["results"] as! [NSDictionary]
                             self.collectionView.reloadData()
                     }
@@ -75,10 +77,11 @@ class MoviesViewController: UIViewController, UICollectionViewDataSource, UIColl
         let posterPath = movie["poster_path"] as! String
         let baseUrl = "http://image.tmdb.org/t/p/w500"
         let imageUrl = NSURL(string: baseUrl + posterPath)
+        
         //cell.titleLabel.text = title
         //cell.overviewLabel.text = overview
         cell.posterImageView.setImageWithURL(imageUrl!)
-        print("row \(indexPath.row)")
+        //print("row \(indexPath.row)")
         return cell
         
     }
@@ -95,6 +98,14 @@ class MoviesViewController: UIViewController, UICollectionViewDataSource, UIColl
         delay(2, closure: {
             self.refreshControl.endRefreshing()
         })
+    }
+    
+    func searchBar(searchBar: UISearchBar, textDidChange searchText: String) {
+        filteredData = searchText.isEmpty ? filteredData : filteredData.filter({(dataString: String) -> Bool in
+            return dataString.rangeOfString(searchText, options: .CaseInsensitiveSearch) != nil
+        })
+        
+        collectionView.reloadData()
     }
     /*
     // MARK: - Navigation
