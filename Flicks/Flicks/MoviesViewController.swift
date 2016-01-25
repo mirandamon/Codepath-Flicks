@@ -16,14 +16,11 @@ class MoviesViewController: UIViewController, UICollectionViewDataSource, UIColl
     @IBOutlet weak var collectionView: UICollectionView!
     var refreshControl: UIRefreshControl!
     var movies: [NSDictionary]?
-    var filteredData: [String]!
-    var movieTitles: [String]!
     @IBOutlet weak var searchBar: UISearchBar!
     override func viewDidLoad() {
         super.viewDidLoad()
         collectionView.dataSource = self
         collectionView.delegate = self
-        searchBar.delegate = self
         
         loadDataFromNetwork()
         refreshControl = UIRefreshControl()
@@ -99,7 +96,7 @@ class MoviesViewController: UIViewController, UICollectionViewDataSource, UIColl
             self.refreshControl.endRefreshing()
         })
     }
-    
+    /*
     func searchBar(searchBar: UISearchBar, textDidChange searchText: String) {
         filteredData = searchText.isEmpty ? filteredData : filteredData.filter({(dataString: String) -> Bool in
             return dataString.rangeOfString(searchText, options: .CaseInsensitiveSearch) != nil
@@ -107,6 +104,7 @@ class MoviesViewController: UIViewController, UICollectionViewDataSource, UIColl
         
         collectionView.reloadData()
     }
+    */
     /*
     // MARK: - Navigation
 
