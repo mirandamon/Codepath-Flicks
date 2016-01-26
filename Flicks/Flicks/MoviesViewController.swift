@@ -13,15 +13,17 @@ import MBProgressHUD
 class MoviesViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UISearchBarDelegate {
     
     
+    @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var collectionView: UICollectionView!
     var refreshControl: UIRefreshControl!
     var movies: [NSDictionary]?
-    @IBOutlet weak var searchBar: UISearchBar!
+    var filteredData: [String]!
+    var searchData: [String]!
     override func viewDidLoad() {
         super.viewDidLoad()
         collectionView.dataSource = self
         collectionView.delegate = self
-        
+        searchBar.delegate = self
         loadDataFromNetwork()
         refreshControl = UIRefreshControl()
         refreshControl.addTarget(self, action: "onRefresh", forControlEvents: UIControlEvents.ValueChanged)
@@ -52,6 +54,13 @@ class MoviesViewController: UIViewController, UICollectionViewDataSource, UIColl
                             //NSLog("response: \(responseDictionary)")
                             self.movies = responseDictionary["results"] as! [NSDictionary]
                             self.collectionView.reloadData()
+                            let dataArray = responseDictionary["results"] as! NSArray
+                            for movie in dataArray {
+                                let object = movie as! NSDictionary
+                                if let title = object["title"] as? String {
+                                    //print(title is String)
+                                }
+                            }
                     }
                 }
         });
