@@ -17,8 +17,7 @@ class MoviesViewController: UIViewController, UICollectionViewDataSource, UIColl
     @IBOutlet weak var collectionView: UICollectionView!
     var refreshControl: UIRefreshControl!
     var movies: [NSDictionary]?
-    var filteredData: [String]!
-    var searchData: [String]!
+    var filteredData: [NSDictionary]?
     override func viewDidLoad() {
         super.viewDidLoad()
         collectionView.dataSource = self
@@ -53,22 +52,26 @@ class MoviesViewController: UIViewController, UICollectionViewDataSource, UIColl
                         data, options:[]) as? NSDictionary {
                             //NSLog("response: \(responseDictionary)")
                             self.movies = responseDictionary["results"] as! [NSDictionary]
+                            self.filteredData = self.movies
                             self.collectionView.reloadData()
+                            /*
                             let dataArray = responseDictionary["results"] as! NSArray
                             for movie in dataArray {
                                 let object = movie as! NSDictionary
                                 if let title = object["title"] as? String {
-                                    //print(title is String)
+                                    print(title is String)
+                                    //self.searchData.append(title)
                                 }
                             }
+                            */
                     }
                 }
         });
         task.resume()
     }
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        if let movies = movies {
-            return movies.count
+        if let filteredData = filteredData {
+            return filteredData.count
         }
         else {
             return 0
@@ -77,7 +80,7 @@ class MoviesViewController: UIViewController, UICollectionViewDataSource, UIColl
 
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier("com.miraen.MovieCell", forIndexPath: indexPath) as! MovieCellCollection
-        let movie = movies![indexPath.row]
+        let movie = filteredData![indexPath.row]
         let title = movie["title"] as! String
         let overview = movie["overview"] as! String
         let posterPath = movie["poster_path"] as! String
@@ -105,15 +108,36 @@ class MoviesViewController: UIViewController, UICollectionViewDataSource, UIColl
             self.refreshControl.endRefreshing()
         })
     }
-    /*
+    
     func searchBar(searchBar: UISearchBar, textDidChange searchText: String) {
-        filteredData = searchText.isEmpty ? filteredData : filteredData.filter({(dataString: String) -> Bool in
-            return dataString.rangeOfString(searchText, options: .CaseInsensitiveSearch) != nil
-        })
-        
+        if searchText.isEmpty {
+            filteredData = movies
+        }
+        else {
+            filteredData = movies?.filter({ (movie: NSDictionary) -> Bool in
+                if let title = movie["title"] as? String {
+                    if title.rangeOfString(searchText, options: .CaseInsensitiveSearch) != nil {
+                        return true
+                    }
+                    else {
+                        return false
+                    }
+                }
+                return false
+            })
+        }
         collectionView.reloadData()
     }
-    */
+    
+    func searchBarTextDidBeginEditing(searchBar: UISearchBar) {
+        self.searchBar.showsCancelButton = true
+    }
+    
+    func searchBarCancelButtonClicked(searchBar: UISearchBar) {
+        searchBar.showsCancelButton = false
+        searchBar.text = ""
+        searchBar.resignFirstResponder()
+    }
     /*
     // MARK: - Navigation
 
