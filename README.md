@@ -2,7 +2,7 @@
 
 **Flickz** is a movies app using the [The Movie Database API](http://docs.themoviedb.apiary.io/#).
 
-Time spent: **3** hours spent in total
+Time spent: **4** hours spent in total
 
 ## User Stories
 
@@ -18,7 +18,7 @@ The following **optional** features are implemented:
 
 - [X] Movies are displayed using a CollectionView instead of a TableView.
 - [ ] User can select from a tab bar for either "Now Playing" or "Top Rated" movies.
-- [ ] User can search for a movie.
+- [X] User can search for a movie.
 - [ ] All images fade in as they are loading.
 - [ ] Customize the UI.
 
