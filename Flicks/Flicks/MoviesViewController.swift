@@ -85,11 +85,31 @@ class MoviesViewController: UIViewController, UICollectionViewDataSource, UIColl
         let overview = movie["overview"] as! String
         let posterPath = movie["poster_path"] as! String
         let baseUrl = "http://image.tmdb.org/t/p/w500"
-        let imageUrl = NSURL(string: baseUrl + posterPath)
+        let imageUrl = NSURLRequest(URL: NSURL(string: baseUrl + posterPath)!)
         
         //cell.titleLabel.text = title
         //cell.overviewLabel.text = overview
-        cell.posterImageView.setImageWithURL(imageUrl!)
+        cell.posterImageView.setImageWithURLRequest(
+            imageUrl,
+            placeholderImage: nil,
+            success: { (imageUrl, imageResponse, image) -> Void in
+                
+                if imageResponse != nil {
+                    //print("Image was NOT cached, fade in image")
+                    cell.posterImageView.alpha = 0.0
+                    cell.posterImageView.image = image
+                    UIView.animateWithDuration(0.3, animations: {() -> Void in
+                        cell.posterImageView.alpha = 1.0
+                    })
+                } else {
+                    //print ("Image was cached so just updated the image")
+                    cell.posterImageView.image = image
+                }
+            },
+            failure: { (imageUrl, imageResponse, error) -> Void in
+                print ("Failure to fetch image")
+            })
+        //cell.posterImageView.setImageWithURL(imageUrl!)
         //print("row \(indexPath.row)")
         return cell
         
