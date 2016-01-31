@@ -50,7 +50,7 @@ class MoviesViewController: UIViewController, UICollectionViewDataSource, UIColl
                 if let data = dataOrNil {
                     if let responseDictionary = try! NSJSONSerialization.JSONObjectWithData(
                         data, options:[]) as? NSDictionary {
-                            //NSLog("response: \(responseDictionary)")
+                            NSLog("response: \(responseDictionary)")
                             self.movies = responseDictionary["results"] as! [NSDictionary]
                             self.filteredData = self.movies
                             self.collectionView.reloadData()
