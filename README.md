@@ -36,7 +36,7 @@ GIF created with [LiceCap](http://www.cockos.com/licecap/).
 
 ## Notes
 
-Describe any challenges encountered while building the app.
+Implementing the search was difficult, since it was easier (but less intuitive) to use an NSDictionary of movie titles rather than a simple array of movie titles.
 
 ## License
 
