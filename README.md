@@ -55,9 +55,9 @@ Implementing the search was difficult, since it was easier (but less intuitive) 
     limitations under the License.
 
 
-# Project 2 - *Flicks v1.1*
+# Project 2 - *Flickz v1.1*
 
-**Name of your app** is a movies app displaying box office and top rental DVDs using [The Movie Database API](http://docs.themoviedb.apiary.io/#).
+**Flickz** is a movies app displaying box office and top rental DVDs using [The Movie Database API](http://docs.themoviedb.apiary.io/#).
 
 Time spent: **X** hours spent in total
 
