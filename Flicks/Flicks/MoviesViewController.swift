@@ -27,13 +27,12 @@ class MoviesViewController: UIViewController, UICollectionViewDataSource, UIColl
         refreshControl = UIRefreshControl()
         refreshControl.addTarget(self, action: "onRefresh", forControlEvents: UIControlEvents.ValueChanged)
         collectionView.insertSubview(refreshControl, atIndex: 0)
-        // Do any additional setup after loading the view.
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
+    
     func loadDataFromNetwork() {
         let apiKey = "a07e22bc18f5cb106bfe4cc1f83ad8ed"
         let url = NSURL(string:"https://api.themoviedb.org/3/movie/now_playing?api_key=\(apiKey)")
@@ -54,21 +53,12 @@ class MoviesViewController: UIViewController, UICollectionViewDataSource, UIColl
                             self.movies = responseDictionary["results"] as! [NSDictionary]
                             self.filteredData = self.movies
                             self.collectionView.reloadData()
-                            /*
-                            let dataArray = responseDictionary["results"] as! NSArray
-                            for movie in dataArray {
-                                let object = movie as! NSDictionary
-                                if let title = object["title"] as? String {
-                                    print(title is String)
-                                    //self.searchData.append(title)
-                                }
-                            }
-                            */
                     }
                 }
         });
         task.resume()
     }
+    
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if let filteredData = filteredData {
             return filteredData.count
@@ -83,38 +73,43 @@ class MoviesViewController: UIViewController, UICollectionViewDataSource, UIColl
         let movie = filteredData![indexPath.row]
         let title = movie["title"] as! String
         let overview = movie["overview"] as! String
-        let baseUrl = "http://image.tmdb.org/t/p/w500"
+        let baseUrl = "http://image.tmdb.org/t/p/w45"
+        let highResBaseUrl = "https://image.tmdb.org/t/p/original"
         if let posterPath = movie["poster_path"] as? String{
             
             let imageUrl = NSURLRequest(URL: NSURL(string: baseUrl + posterPath)!)
+            let highResImageUrl = NSURLRequest(URL: NSURL(string: highResBaseUrl + posterPath)!)
             
             cell.posterImageView.setImageWithURLRequest(
                 imageUrl,
                 placeholderImage: nil,
                 success: { (imageUrl, imageResponse, image) -> Void in
+                    cell.posterImageView.alpha = 0.0
+                    cell.posterImageView.image = image
+                    UIView.animateWithDuration(0.3, animations: {() -> Void in
+                        cell.posterImageView.alpha = 1.0
+                        },
+                            completion: {(success) -> Void in
+                                cell.posterImageView.setImageWithURLRequest(highResImageUrl,
+                                    placeholderImage: image,
+                                    success: { (highresImageUrl, highResImageResponse, highResImage) -> Void in
+                                        if highResImageResponse != nil {
+                                            cell.posterImageView.image = highResImage
+                                        }
+                                        else {
+                                            cell.posterImageView.image = highResImage
+                                        }
+                                    },
+                                    failure: {(request, response, error) -> Void in
+                                    })
+                            })
                     
-                    if imageResponse != nil {
-                        //print("Image was NOT cached, fade in image")
-                        cell.posterImageView.alpha = 0.0
-                        cell.posterImageView.image = image
-                        UIView.animateWithDuration(0.3, animations: {() -> Void in
-                            cell.posterImageView.alpha = 1.0
-                        })
-                    }
-                    else {
-                        //print ("Image was cached so just updated the image")
-                        cell.posterImageView.image = image
-                    }
                 },
                 failure: { (imageUrl, imageResponse, error) -> Void in
                     print ("Failure to fetch image")
             })
 
         }
-        //cell.titleLabel.text = title
-        //cell.overviewLabel.text = overview
-        //cell.posterImageView.setImageWithURL(imageUrl!)
-        //print("row \(indexPath.row)")
         return cell
         
     }
