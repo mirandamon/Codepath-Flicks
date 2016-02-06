@@ -1,4 +1,4 @@
-# Project 1 - *Flickz*
+# Project 1 - *Flickz week 1*
 
 **Flickz** is a movies app using the [The Movie Database API](http://docs.themoviedb.apiary.io/#).
 
@@ -55,23 +55,23 @@ Implementing the search was difficult, since it was easier (but less intuitive) 
     limitations under the License.
 
 
-# Project 2 - *Flickz v1.1*
+# Project 2 - *Flickz v1.1 week 2*
 
 **Flickz** is a movies app displaying box office and top rental DVDs using [The Movie Database API](http://docs.themoviedb.apiary.io/#).
 
-Time spent: **X** hours spent in total
+Time spent: **3** hours spent in total
 
 ## User Stories
 
 The following **required** functionality is completed:
 
-- [ ] User can view movie details by tapping on a cell.
-- [ ] User can select from a tab bar for either **Now Playing** or **Top Rated** movies.
+- [X] User can view movie details by tapping on a cell.
+- [X] User can select from a tab bar for either **Now Playing** or **Top Rated** movies.
 - [ ] Customize the selection effect of the cell.
 
 The following **optional** features are implemented:
 
-- [ ] For the large poster, load the low resolution image first and then switch to the high resolution image when complete.
+- [X] For the large poster, load the low resolution image first and then switch to the high resolution image when complete.
 - [ ] Customize the navigation bar.
 
 The following **additional** features are implemented:
