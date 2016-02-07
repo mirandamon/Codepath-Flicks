@@ -12,7 +12,6 @@ The following **required** functionality is complete:
 - [X] Poster images are loaded using the UIImageView category in the AFNetworking library.
 - [X] User sees a loading state while waiting for the movies API.
 - [X] User can pull to refresh the movie list.
-- [ ] User sees an error message when there's a networking error.  
 
 The following **optional** features are implemented:
 
@@ -67,7 +66,7 @@ The following **required** functionality is completed:
 
 - [X] User can view movie details by tapping on a cell.
 - [X] User can select from a tab bar for either **Now Playing** or **Top Rated** movies.
-- [ ] Customize the selection effect of the cell.
+- [X] Customize the selection effect of the cell.
 
 The following **optional** features are implemented:
 
