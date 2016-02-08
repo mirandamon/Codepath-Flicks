@@ -22,6 +22,10 @@ class MoviesViewController: UIViewController, UICollectionViewDataSource, UIColl
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        if let navigationBar = navigationController?.navigationBar {
+            navigationBar.tintColor = UIColor(red: 1.0, green: 0.25, blue:0.25, alpha: 0.8)
+        }
         collectionView.dataSource = self
         collectionView.delegate = self
         searchBar.delegate = self
@@ -77,7 +81,7 @@ class MoviesViewController: UIViewController, UICollectionViewDataSource, UIColl
         let overview = movie["overview"] as! String
         let baseUrl = "http://image.tmdb.org/t/p/w45"
         let highResBaseUrl = "https://image.tmdb.org/t/p/original"
-        if let posterPath = movie["poster_path"] as? String{
+        if let posterPath = movie["poster_path"] as? String {
             
             let imageUrl = NSURLRequest(URL: NSURL(string: baseUrl + posterPath)!)
             let highResImageUrl = NSURLRequest(URL: NSURL(string: highResBaseUrl + posterPath)!)
@@ -113,8 +117,13 @@ class MoviesViewController: UIViewController, UICollectionViewDataSource, UIColl
 
         }
         return cell
-        
     }
+    
+    /*func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
+        collectionView.deselectItemAtIndexPath(indexPath, animated: true)
+        collectionView.reloadItemsAtIndexPaths([indexPath])
+    }*/
+    
     func delay(delay:Double, closure:()->()) {
         dispatch_after(
             dispatch_time(
@@ -128,6 +137,16 @@ class MoviesViewController: UIViewController, UICollectionViewDataSource, UIColl
         delay(2, closure: {
             self.refreshControl.endRefreshing()
         })
+    }
+    
+    func collectionView(collectionView: UICollectionView, didHighlightItemAtIndexPath indexPath: NSIndexPath) {
+        let cell = collectionView.cellForItemAtIndexPath(indexPath) as! MovieCellCollection
+        cell.posterImageView.alpha = 0.5
+    }
+    
+    func collectionView(collectionView: UICollectionView, didUnhighlightItemAtIndexPath indexPath: NSIndexPath) {
+        let cell = collectionView.cellForItemAtIndexPath(indexPath) as! MovieCellCollection
+        cell.posterImageView.alpha = 1.0
     }
     
     func searchBar(searchBar: UISearchBar, textDidChange searchText: String) {

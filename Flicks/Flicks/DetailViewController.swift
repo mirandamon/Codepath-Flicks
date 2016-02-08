@@ -15,13 +15,20 @@ class DetailViewController: UIViewController {
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var infoView: UIView!
+    @IBOutlet weak var ratingLabel: UILabel!
+    @IBOutlet weak var ratingImageView: UIImageView!
+    @IBOutlet weak var releaseDateLabel: UILabel!
     
     var movie: NSDictionary!
+    
+    var dateFormatter = NSDateFormatter()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         scrollView.contentSize = CGSize(width: scrollView.frame.size.width, height: infoView.frame.origin.y + infoView.frame.size.height)
+        dateFormatter.locale = NSLocale.currentLocale()
+        
         let baseUrl = "http://image.tmdb.org/t/p/w500"
         if let posterPath = movie["poster_path"] as? String{
             
@@ -50,10 +57,20 @@ class DetailViewController: UIViewController {
             })
             
         }
-        
+        //ratingImageView.image
+        var rating = movie["vote_average"] as! Double
+        rating = rating * 10
+        ratingLabel.text = String(rating) + "%"
         let title = movie["title"] as! String
         titleLabel.text = title
         
+        var releaseDate = movie["release_date"] as! String
+        dateFormatter.dateFormat = "yyyy-MM-dd"
+        if let releaseNSDate = dateFormatter.dateFromString(releaseDate){
+            dateFormatter.dateFormat = "MMMM dd, yyyy"
+            releaseDate = dateFormatter.stringFromDate(releaseNSDate)
+        }
+        releaseDateLabel.text = "Released: " + releaseDate
         let overview = movie["overview"] as! String
         overviewLabel.text = overview
         overviewLabel.sizeToFit()

@@ -73,11 +73,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Flicks/MoviesViewController.swift"
-            timestampString = "476474565.326892"
+            timestampString = "476513620.458635"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "81"
-            endingLineNumber = "81"
+            startingLineNumber = "85"
+            endingLineNumber = "85"
             landmarkName = "collectionView(_:cellForItemAtIndexPath:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -89,11 +89,168 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Flicks/MoviesViewController.swift"
-            timestampString = "476474565.326892"
+            timestampString = "476513620.458635"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "31"
-            endingLineNumber = "31"
+            startingLineNumber = "35"
+            endingLineNumber = "35"
+            landmarkName = "viewDidLoad()"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Flicks/MoviesViewController.swift"
+            timestampString = "476490472.506747"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "14"
+            endingLineNumber = "14"
+            landmarkName = "MoviesViewController"
+            landmarkType = "3">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Flicks.MoviesViewController.searchBar.getter : weak Swift.ImplicitlyUnwrappedOptional&lt;__ObjC.UISearchBar&gt;"
+                  moduleName = "Flicks"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/nathan/Programming%20Stuff/Flicks/Codepath-Flicks/Flicks/Flicks/MoviesViewController.swift"
+                  timestampString = "476490472.546225"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "12">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Flicks.MoviesViewController.searchBar.setter : weak Swift.ImplicitlyUnwrappedOptional&lt;__ObjC.UISearchBar&gt;"
+                  moduleName = "Flicks"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/nathan/Programming%20Stuff/Flicks/Codepath-Flicks/Flicks/Flicks/MoviesViewController.swift"
+                  timestampString = "476490472.54642"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "16">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Flicks.MoviesViewController.searchBar.materializeForSet : weak Swift.ImplicitlyUnwrappedOptional&lt;__ObjC.UISearchBar&gt;"
+                  moduleName = "Flicks"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/nathan/Programming%20Stuff/Flicks/Codepath-Flicks/Flicks/Flicks/MoviesViewController.swift"
+                  timestampString = "476490472.546512"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "16">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Flicks.MoviesViewController.init (Flicks.MoviesViewController.Type)(nibName : Swift.Optional&lt;Swift.String&gt;, bundle : Swift.Optional&lt;__ObjC.NSBundle&gt;) -&gt; Flicks.MoviesViewController"
+                  moduleName = "Flicks"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/nathan/Programming%20Stuff/Flicks/Codepath-Flicks/Flicks/Flicks/MoviesViewController.swift"
+                  timestampString = "476490472.546595"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "16"
+                  endingLineNumber = "16"
+                  offsetFromSymbolStart = "70">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Flicks.MoviesViewController.init (Flicks.MoviesViewController.Type)(coder : __ObjC.NSCoder) -&gt; Swift.Optional&lt;Flicks.MoviesViewController&gt;"
+                  moduleName = "Flicks"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/nathan/Programming%20Stuff/Flicks/Codepath-Flicks/Flicks/Flicks/MoviesViewController.swift"
+                  timestampString = "476490472.546677"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "16"
+                  endingLineNumber = "16"
+                  offsetFromSymbolStart = "31">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Flicks/MovieCellCollection.swift"
+            timestampString = "476507869.537228"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "17"
+            endingLineNumber = "17"
+            landmarkName = "MovieCellCollection"
+            landmarkType = "3">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Flicks/MoviesViewController.swift"
+            timestampString = "476513620.458635"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "144"
+            endingLineNumber = "144"
+            landmarkName = "collectionView(_:didHighlightItemAtIndexPath:)"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Flicks/DetailViewController.swift"
+            timestampString = "476595853.115815"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "64"
+            endingLineNumber = "64"
+            landmarkName = "viewDidLoad()"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Flicks/DetailViewController.swift"
+            timestampString = "476596273.002896"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "71"
+            endingLineNumber = "71"
             landmarkName = "viewDidLoad()"
             landmarkType = "5">
          </BreakpointContent>
